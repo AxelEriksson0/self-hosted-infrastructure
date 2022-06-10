@@ -1,6 +1,6 @@
 # DNS
 
-I use [Websupport](https://www.websupport.se/). Point an A name record towards your IP address.
+I use [Websupport](https://www.websupport.se/). Point A name record towards your IP address.
 
 ## DNS checker
 
