@@ -15,7 +15,7 @@ sudo apt-get install ufw
 ```
 
 ```
-sudo ufw allow 80,443,3000,996,7946,4789,2377/tcp; ufw allow 7946,4789,2377/udp;
+sudo ufw allow 80,443,3000,996,7946,4789,2377/tcp; sudo ufw allow 7946,4789,2377/udp;
 ```
 
 3. Start Caprover.
@@ -25,7 +25,7 @@ mkdir /captain
 ```
 
 ```
-docker run --name caprover -p 80:80 -p 443:443 -p 3000:3000 -e MAIN_NODE_IP_ADDRESS=127.0.0.1 -e DEFAULT_PASSWORD=custom_default_password -v /var/run/docker.sock:/var/run/docker.sock caprover/caprover
+docker run --name caprover -p 80:80 -p 443:443 -p 3000:3000 -e MAIN_NODE_IP_ADDRESS=127.0.0.1 -e DEFAULT_PASSWORD=custom_default_password -e ACCEPTED_TERMS=true -v /var/run/docker.sock:/var/run/docker.sock caprover/caprover
 ```
 
 Notice the `DEFAULT_PASSWORD` variable.

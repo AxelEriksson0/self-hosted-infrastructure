@@ -1,6 +1,6 @@
 # Self-hosted infrastructure
 
-This is my self-hosted infrastructure setup with documentation and instructions. Walking through the steps of setting up Raspberry Pi, DNS, Router and CapRover.
+This is my setup for self-hosted infrastructure with step-by-step instructions. It contains instructions for Raspberry Pi, DNS, Router and CapRover. I don't have an internet provider that uses IPv6.
 
 1. [RASPBERRY_PI.md](RASPBERRY_PI.md)
 2. [DNS](DNS.md)

@@ -17,5 +17,5 @@ docker exec -t d0d0754d43c9 pg*dumpall -c -U postgres > dump_`date +%d-%m-%Y"_"%
 https://stackoverflow.com/questions/24718706/backup-restore-a-dockerized-postgresql-database
 
 ```
-scp pi@axle.local:/home/pi/dump_10-06-2022_12_41_59.sql ./
+scp pi@rxtl.local:/home/pi/dump_10-06-2022_12_41_59.sql ./
 ```
