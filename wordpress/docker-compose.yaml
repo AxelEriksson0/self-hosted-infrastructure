@@ -1,0 +1,81 @@
+version: "3.8"
+
+services:
+  database:
+    deploy:
+      resources:
+        limits:
+          memory: 2048m
+    env_file:
+      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+    image: mariadb:11.2.2-jammy # https://hub.docker.com/_/mariadb
+    networks:
+      - wordpress-network
+    ports:
+      - 3306:3306
+    restart: unless-stopped
+    volumes:
+      - db-data:/var/lib/mysql
+
+  phpmyadmin:
+    depends_on:
+      - database
+    env_file: .env
+    environment:
+      PMA_HOST: database
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+    image: phpmyadmin:5.2.1 # https://hub.docker.com/_/phpmyadmin
+    networks:
+      - wordpress-network
+    ports:
+      - 8081:80
+    restart: unless-stopped
+
+  wordpress:
+    depends_on:
+      - database
+    env_file: .env
+    environment:
+      WORDPRESS_DB_HOST: database:3306
+      WORDPRESS_DB_NAME: "${MYSQL_DATABASE}"
+      WORDPRESS_DB_USER: "${MYSQL_USER}"
+      WORDPRESS_DB_PASSWORD: "${MYSQL_PASSWORD}"
+    image: wordpress:6.4.2-apache # https://hub.docker.com/_/wordpress/tags
+    networks:
+      - wordpress-network
+    restart: unless-stopped
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+
+  swag:
+    depends_on:
+      - wordpress
+    environment:
+      - CERTPROVIDER=zerossl
+      - EMAIL=axeleriksson0@gmail.com
+      - PUID=1000
+      - PGID=1000
+      - SUBDOMAINS=www
+      - TZ=Europe/Stockholm
+      - URL=DOMAIN
+      - VALIDATION=http
+    image: linuxserver/swag
+    networks:
+      - wordpress-network
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - ./swag:/config
+
+volumes:
+  db-data:
+
+networks:
+  wordpress-network:
+    driver: bridge

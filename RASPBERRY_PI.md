@@ -4,8 +4,9 @@ I use a Raspberry Pi 4 Model B, 4GB.
 
 ## Raspberry Pi Imager
 
-- Download [Imager](https://www.raspberrypi.org/software/)
-  - I use Ubuntu and use the GDebi Package Installer, otherwise Ubuntu Store might select an older version.
+In order to put software on your SD-card I use Raspberry Pi [Imager](https://www.raspberrypi.org/software/).
+
+- I use Ubuntu and use the GDebi Package Installer, otherwise Ubuntu Store might select an older version.
 - Raspberry Pi OS Lite (64-bit)
 - Control + Shift + X to open advanced menu
 

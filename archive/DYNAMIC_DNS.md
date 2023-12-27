@@ -1,7 +1,7 @@
 # Dynamic DNS
 
-**Dynamic DNS doesn't work with CapRover because the DNS pointer is a CNAME towards DuckDNS domain, so cannot verify HTTPS**
+If you have no static IPv4 address (IPv6 should be configurable to be static), there's a need for Dynamic DNS.
 
-## DuckDNS
+There is [Duck DNS](https://www.duckdns.org) but I use my router's dynamic DNS solution.
 
-If there is no Ipv6 nor a static Ipv4 address, there's a need for a Dynamic DNS solution. I use [Duck DNS](https://www.duckdns.org).
+**Dynamic DNS doesn't seem to work with CapRover due to their structure when configuring HTTPS**
