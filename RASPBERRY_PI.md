@@ -16,6 +16,8 @@ In order to put software on your SD-card I use Raspberry Pi [Imager](https://www
 
 ## SSH
 
+What you set the username to is the path you SSH into. For example if the username is pi:
+
 ```
 ssh pi@rxtl.local
 ```

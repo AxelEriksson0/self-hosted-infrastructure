@@ -1,7 +1,5 @@
 # SQL
 
-(!) Seems like MySQL Docker image doesn't run properly on Raspberry Pi.
-
 ## PostgreSQL
 
 ```
