@@ -5,3 +5,7 @@ You can use the `docker-compose.yaml` to get a Wordpress up and running with HTT
 ```
 docker compose up
 ```
+
+## Plugins
+
+- Updraft for making backups.

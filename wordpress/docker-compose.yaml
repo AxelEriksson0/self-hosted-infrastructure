@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   database:
     deploy:
@@ -13,7 +11,7 @@ services:
       MYSQL_DATABASE: "${MYSQL_DATABASE}"
       MYSQL_USER: "${MYSQL_USER}"
       MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
-    image: mariadb:11.2.2-jammy # https://hub.docker.com/_/mariadb
+    image: mariadb:11.7.2-noble # https://hub.docker.com/_/mariadb
     networks:
       - wordpress-network
     ports:
@@ -29,7 +27,7 @@ services:
     environment:
       PMA_HOST: database
       MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
-    image: phpmyadmin:5.2.1 # https://hub.docker.com/_/phpmyadmin
+    image: phpmyadmin:5.2.2 # https://hub.docker.com/_/phpmyadmin
     networks:
       - wordpress-network
     ports:
@@ -45,7 +43,7 @@ services:
       WORDPRESS_DB_NAME: "${MYSQL_DATABASE}"
       WORDPRESS_DB_USER: "${MYSQL_USER}"
       WORDPRESS_DB_PASSWORD: "${MYSQL_PASSWORD}"
-    image: wordpress:6.4.2-apache # https://hub.docker.com/_/wordpress/tags
+    image: wordpress:6.7.2-apache # https://hub.docker.com/_/wordpress/tags
     networks:
       - wordpress-network
     restart: unless-stopped
